@@ -2,11 +2,11 @@
 
 ### Getting Started
 
-    ' git clone https://github.com/cyberbaaz/mac_changer.git
-       cd mac_changer--
-       python2 mac_changer.py [options] '
+       git clone https://github.com/cyberbaaz/mac_changer.git
+       cd mac_changer
+       python2 mac_changer.py [options] 
 
-Use '''python2''' only
+Use **python2** only
 
 |interface|random  |new mac |
 |---      | ---    |  ---   |
