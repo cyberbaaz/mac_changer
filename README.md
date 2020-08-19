@@ -1,7 +1,7 @@
 ## mac_changer
 
 ### Getting Started
-    'git clone https://github.com/cyberbaaz/mac_changer.git--
+    'git clone https://github.com/cyberbaaz/mac_changer.git
        cd mac_changer--
        python2 mac_changer.py [options]'
 
