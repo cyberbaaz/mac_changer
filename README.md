@@ -1,6 +1,19 @@
-# mac_changer
-# Works on python2
-# for usage help type:
-#         python mac_changer.py -h
-# You can contribute to the code
-# Please comment all the issues
+## mac_changer
+
+### Getting Started
+    'git clone https://github.com/cyberbaaz/mac_changer.git--
+       cd mac_changer--
+       python2 mac_changer.py [options]'
+
+Use 'python2' only
+
+|interface|random  |new mac |
+|---      | ---    |  ---   |
+|ifconfig |code gen|type it |
+|-i       |-r      |-m      |
+
+
+**Python3 support updates to be released soon**
+
+> You can contribute to the code
+> Please comment all the issues
