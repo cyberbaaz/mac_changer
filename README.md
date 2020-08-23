@@ -1,12 +1,14 @@
 ## mac_changer
 
 ### Getting Started
-
+      ```
        git clone https://github.com/cyberbaaz/mac_changer.git
        cd mac_changer
-       python2 mac_changer.py [options] 
-
-Use **python2** only
+       python mac_changer.py [options] 
+      ```
+ Use *-h* for options help 
+  
+`Python2` and `Python3` both supported
 
 |interface|random  |new mac |
 |---      | ---    |  ---   |
@@ -14,7 +16,8 @@ Use **python2** only
 |-i       |-r      |-m      |
 
 
-**Python3 support updates to be released soon**
+**Python3 support updated**
 
 > You can contribute to the code
-> Please comment all the issues
+
+* Please comment all the issues
