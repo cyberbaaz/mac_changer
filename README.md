@@ -20,4 +20,8 @@
 
 > You can contribute to the code
 
+## License & copyright
+
+Licensed under [MIT License](LICENSE)
+
 * Please comment all the issues
