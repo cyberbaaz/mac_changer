@@ -95,9 +95,9 @@ else:
         present_mac = current_mac(options.interface)
 
     if present_mac == options.new_mac:
-        print("[+]New MAC = " + present_mac)
+        print("[+]New MAC = " + str(present_mac) + " (" + str(vendor_info(present_mac)) + ")")
     elif present_mac == rand:
-        print("[+]New MAC = " + present_mac)
+        print("[+]New MAC = " + str(present_mac) + " (" + str(vendor_info(present_mac)) + ")")
     else:
         print("[-]MAC did not change")
 
