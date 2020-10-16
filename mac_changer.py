@@ -1,12 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Simple MAC changer program
 
 import subprocess
 import optparse
 import re
 import random
-
-
 
 global rand
 
@@ -46,6 +44,19 @@ def current_mac(interface):
             print("[-]No MAC exist for the interface")
 
 
+def vendor_info(address):
+    with open("OUI.list", "r") as file:
+        for mak in list(file):
+            catch_vendor = re.search(r"(\w\w \w\w \w\w)(.*)", str(mak))
+            mac_li = catch_vendor.group(1)
+            mac_li = mac_li.split(" ")
+            mac_li = ':'.join(mac_li)
+            present_mak = re.search(r"\w\w:\w\w:\w\w", str(address.upper()))
+            present_mak = present_mak.group(0)
+            if str(mac_li) == present_mak:
+                return catch_vendor.group(2)
+
+
 def random_mac(interface):
     with open("OUI.list", "r") as file:
         select_one = random.choice(list(file))
@@ -53,7 +64,8 @@ def random_mac(interface):
         mac = add_part.group(0)
         mac = mac.split(" ")
         mac = ':'.join(mac)
-        create_random_mac = "%s:%02x:%02x:%02x" % (str(mac).lower(), random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        create_random_mac = "%s:%02x:%02x:%02x" % (
+        str(mac).lower(), random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
     subprocess.call(["ifconfig", interface, "down"])
     subprocess.call(["ifconfig", interface, "hw", "ether", create_random_mac])
     subprocess.call(["ifconfig", interface, "up"])
@@ -63,9 +75,9 @@ def random_mac(interface):
 
 options = get_args()
 
-
 present_mac = current_mac(options.interface)
-print("Current MAC= " + str(present_mac))
+
+print("Current MAC= " + str(present_mac) + " (" + str(vendor_info(present_mac)) + ")")
 
 if present_mac is None:
     print("[-]Enter a valid interface and try again!")
@@ -88,3 +100,4 @@ else:
         print("[+]New MAC = " + present_mac)
     else:
         print("[-]MAC did not change")
+
