@@ -7,6 +7,7 @@ import re
 import random
 
 
+
 global rand
 
 
@@ -46,7 +47,13 @@ def current_mac(interface):
 
 
 def random_mac(interface):
-    create_random_mac = "%02x:%02x:%02x:%02x:%02x:%02x" % (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255), random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+    with open("OUI.list", "r") as file:
+        select_one = random.choice(list(file))
+        add_part = re.search(r"\w\w \w\w \w\w", str(select_one))
+        mac = add_part.group(0)
+        mac = mac.split(" ")
+        mac = ':'.join(mac)
+        create_random_mac = "%s:%02x:%02x:%02x" % (str(mac).lower(), random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
     subprocess.call(["ifconfig", interface, "down"])
     subprocess.call(["ifconfig", interface, "hw", "ether", create_random_mac])
     subprocess.call(["ifconfig", interface, "up"])
