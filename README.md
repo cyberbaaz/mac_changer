@@ -1,6 +1,6 @@
 ## mac_changer
-	Change your MAC address and know the vendor information to 	which it was changed.You can also create a new MAC a/c to 	your 	choice.
-	Check the help option for usage info.
+Change your MAC address and know the vendor information to which it was changed.You can also create a new MAC a/c to your choice.
+Check the help option for usage info.
 
 ### Getting Started
       
